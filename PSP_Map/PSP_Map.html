@@ -57,12 +57,14 @@
 	</script>
 	<script>
 		function addMarker(participant, region, LatDiff, LngDiff) {
-			var Lat = (Math.random() * (LatDiff) + 24.748289 + ((region-1) * LatDiff));
+            var image = 'https://raw.githubusercontent.com/hoyuisun/NEOS/master/PSP_Map/marker/marker.png';
+            var Lat = (Math.random() * (LatDiff) + 24.748289 + ((region-1) * LatDiff));
 			var Lng = (Math.random() * (LngDiff) + 120.898108 + ((region%10+1) * LngDiff));
 			var Location = new google.maps.LatLng(Lat, Lng);
 			var marker = new google.maps.Marker({
 				position: Location,
 				map: map,
+                icon: image
 			});
 			var infowindow = new google.maps.InfoWindow({
 				content: '<font size="5"><b>Participant ID: ' + participant + '</b></font>' + '<div id="bodyContent"></br>' + '<font size="4">This participant is assigned to Region: ' + region + '</font></div>'
